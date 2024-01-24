@@ -5,7 +5,6 @@ using System.Reflection;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,12 +23,8 @@ var configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .Build();
 
-Log.Logger = new LoggerConfiguration()
-            .Enrich.FromLogContext()
-            .WriteTo.Console()
-            .CreateLogger();
-
-Log.Information("Starting up");
+builder.Logging.AddSerilog();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
