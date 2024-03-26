@@ -54,7 +54,7 @@ namespace G5.Api.Controllers
                     Value = serializedOperacion
                 });
 
-                _logger.LogInformation($"RequestPermission - OK: {JsonConvert.SerializeObject(response)}");
+                //_logger.LogInformation($"RequestPermission - OK: {JsonConvert.SerializeObject(response)}");
             }
             catch (CustomExceptions ex)
             {
